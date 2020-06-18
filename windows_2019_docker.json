@@ -1,6 +1,7 @@
 {
   "builders": [
     {
+      "accelerator": "kvm",
       "boot_wait": "0s",
       "communicator": "winrm",
       "cpus": 2,
@@ -15,18 +16,22 @@
         "./scripts/win-updates.ps1"
       ],
       "headless": true,
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
-      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "type": "qemu",
-      "accelerator": "kvm",
       "output_directory": "windows_2019_docker-qemu",
       "qemuargs": [
-        [ "-drive", "file=windows_2019_docker-qemu/{{ .Name }},if=virtio,cache=writeback,discard=ignore,format=qcow2,index=1" ],
-        [ "-drive", "file={{ user `virtio_win_iso` }},media=cdrom,index=3" ]
+        [
+          "-drive",
+          "file=windows_2019_docker-qemu/{{ .Name }},if=virtio,cache=writeback,discard=ignore,format=qcow2,index=1"
+        ],
+        [
+          "-drive",
+          "file={{ user `virtio_win_iso` }},media=cdrom,index=3"
+        ]
       ],
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "type": "qemu",
       "vm_name": "WindowsServer2019Docker",
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
@@ -50,8 +55,7 @@
         "./scripts/win-updates.ps1"
       ],
       "guest_additions_mode": "disable",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
@@ -80,8 +84,7 @@
       ],
       "guest_os_type": "windows9srv-64",
       "headless": "{{user `headless`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
@@ -115,18 +118,27 @@
         "./scripts/win-updates.ps1"
       ],
       "guest_os_type": "win-2019",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 4096,
-      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "type": "parallels-iso",
       "parallels_tools_flavor": "win",
       "parallels_tools_mode": "disable",
       "prlctl": [
-        ["set", "{{.Name}}", "--adaptive-hypervisor", "on"],
-        ["set", "{{.Name}}", "--efi-boot", "off"]
+        [
+          "set",
+          "{{.Name}}",
+          "--adaptive-hypervisor",
+          "on"
+        ],
+        [
+          "set",
+          "{{.Name}}",
+          "--efi-boot",
+          "off"
+        ]
       ],
+      "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
+      "type": "parallels-iso",
       "vm_name": "WindowsServer2019Docker",
       "winrm_password": "vagrant",
       "winrm_timeout": "{{user `winrm_timeout`}}",
@@ -149,8 +161,7 @@
       "guest_additions_mode": "disable",
       "guest_os_type": "Windows2016_64",
       "headless": "{{user `headless`}}",
-      "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_checksum_type": "{{user `iso_checksum_type`}}",
+      "iso_checksum": "{{user `iso_checksum_type`}}:{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
       "memory": 2048,
       "post_shutdown_delay": "10s",
