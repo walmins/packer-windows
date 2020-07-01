@@ -15,7 +15,7 @@
       "headless": true,
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
-      "memory": 4096,
+      "memory": "{{user `memory`}}",
       "output_directory": "windows_7-qemu",
       "qemuargs": [
         [
@@ -57,7 +57,7 @@
       "headless": "{{user `headless`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
-      "memory": 2048,
+      "memory": "{{user `memory`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "ssh_password": "vagrant",
       "ssh_timeout": "8h",
@@ -91,7 +91,7 @@
       "headless": "{{user `headless`}}",
       "iso_checksum": "{{user `iso_checksum`}}",
       "iso_url": "{{user `iso_url`}}",
-      "memory": 2048,
+      "memory": "{{user `memory`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "ssh_password": "vagrant",
       "ssh_timeout": "8h",
@@ -238,6 +238,7 @@
   "variables": {
     "autounattend": "./answer_files/7/Autounattend.xml",
     "disk_size": "61440",
+    "memory": "2048",
     "headless": "false",
     "iso_checksum": "md5:1d0d239a252cb53e466d39e752b17c28",
     "iso_url": "http://care.dlservice.microsoft.com/dl/download/evalx/win7/x64/EN/7600.16385.090713-1255_x64fre_enterprise_en-us_EVAL_Eval_Enterprise-GRMCENXEVAL_EN_DVD.iso",
