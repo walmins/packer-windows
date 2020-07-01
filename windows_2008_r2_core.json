@@ -4,7 +4,7 @@
       "boot_wait": "2m",
       "cpus": 2,
       "disk_adapter_type": "lsisas1068",
-      "disk_size": 61440,
+      "disk_size": "{{user `disk_size`}}",
       "floppy_files": [
         "./answer_files/2008_r2_core/Autounattend.xml",
         "./scripts/win-updates.ps1",
@@ -32,7 +32,7 @@
     {
       "boot_wait": "2m",
       "cpus": 2,
-      "disk_size": 61440,
+      "disk_size": "{{user `disk_size`}}",
       "floppy_files": [
         "./answer_files/2008_r2_core/Autounattend.xml",
         "./scripts/win-updates.ps1",
@@ -78,6 +78,9 @@
       ],
       "type": "shell"
     }
-  ]
+  ],
+  "variables": {
+    "disk_size": "61440"
+  }
 }
 

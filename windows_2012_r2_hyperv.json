@@ -4,7 +4,7 @@
       "boot_wait": "2m",
       "cpus": 2,
       "disk_adapter_type": "lsisas1068",
-      "disk_size": 61440,
+      "disk_size": "{{user `disk_size`}}",
       "floppy_files": [
         "./answer_files/2012_r2_hyperv/Autounattend.xml",
         "./scripts/microsoft-updates.bat",
@@ -33,7 +33,7 @@
     {
       "boot_wait": "2m",
       "cpus": 2,
-      "disk_size": 61440,
+      "disk_size": "{{user `disk_size`}}",
       "floppy_files": [
         "./answer_files/2012_r2_hyperv/Autounattend.xml",
         "./scripts/microsoft-updates.bat",
@@ -81,6 +81,9 @@
       ],
       "type": "shell"
     }
-  ]
+  ],
+  "variables": {
+    "disk_size": "61440"
+  }
 }
 
