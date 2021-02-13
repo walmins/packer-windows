@@ -19,7 +19,7 @@
       ],
       "headless": true,
       "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_url": "{{user `iso_url`}}",
+      "iso_url": "{{user `iso_url`}}",      
       "memory": "{{user `memory`}}",
       "output_directory": "windows_10-qemu",
       "qemuargs": [
