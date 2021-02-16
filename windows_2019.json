@@ -92,7 +92,7 @@
       "memory": "{{user `memory`}}",
       "shutdown_command": "a:/sysprep.bat",
       "type": "vmware-iso",
-      "version": 14,
+      "version": "{{user `vmx_version`}}",
       "vm_name": "WindowsServer2019",
       "vmx_data": {
         "RemoteDisplay.vnc.enabled": "false",
@@ -186,7 +186,8 @@
     "manually_download_iso_from": "https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019",
     "restart_timeout": "5m",
     "virtio_win_iso": "~/virtio-win.iso",
-    "winrm_timeout": "2h"
+    "winrm_timeout": "2h",
+    "vmx_version": "14"
   }
 }
 
