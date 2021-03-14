@@ -7,5 +7,5 @@
 
 # bigger disk for hyperv
 packer build --only=vmware-iso `
-       --var disk_size=136400 `
-       windows_10.json
+  --var disk_size=136400 `
+  windows_10.json

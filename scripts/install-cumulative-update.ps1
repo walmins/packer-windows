@@ -26,7 +26,8 @@ if ($Updates.Count -gt 0) {
 
 if ($UpdatesToDownload.Count -eq 0) {
   Write-Output "No cumulative Windows updates found."
-} else {
+}
+else {
   Write-Output "Downloading cumulative Windows update ..."
   $Downloader = $Session.CreateUpdateDownloader()
   $Downloader.Updates = $UpdatesToDownload

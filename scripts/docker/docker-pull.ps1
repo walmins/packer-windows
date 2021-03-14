@@ -1,6 +1,6 @@
-$images = ""
+﻿$images = ""
 if (Test-Path env:docker_images) {
-  $images = $env:docker_images.split() 
+  $images = $env:docker_images.split()
 }
 
 function DockerPull {
@@ -10,10 +10,10 @@ function DockerPull {
     return
   }
 
-  Write-Host Installing $image ...
+  Write-Output Installing $image ...
   $j = Start-Job -ScriptBlock { docker pull $args[0] } -ArgumentList "$image"
   while ( $j.JobStateInfo.state -ne "Completed" -And $j.JobStateInfo.state -ne "Failed" ) {
-    Write-Host $j.JobStateInfo.state
+    Write-Output $j.JobStateInfo.state
     Start-Sleep 30
   }
 
@@ -28,17 +28,17 @@ function DockerRun {
     return
   }
 
-  Write-Host Run first container from $image ...
+  Write-Output Run first container from $image ...
   docker run --rm $image cmd
 }
 
-$images | foreach {
+$images | ForEach-Object {
   DockerPull $_
 }
-$images | foreach {
+$images | ForEach-Object {
   DockerPull $_
 }
 
-$images | foreach {
+$images | ForEach-Object {
   DockerRun $_
 }

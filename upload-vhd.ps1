@@ -14,17 +14,17 @@ $storageaccount = 'chocolateyfestsa'
 $storageType = 'Standard_LRS'
 $containername = 'vhds'
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccount -Location $location `
-                  -SkuName $storageType -Kind "Storage"
+  -SkuName $storageType -Kind "Storage"
 $vhdName = 'windows_2019_docker_azure.vhd'
 $urlOfUploadedImageVhd = ('https://' + $storageaccount + '.blob.core.windows.net/' + $containername + '/' + $vhdName)
 Add-AzureRmVhd -ResourceGroupName $resourceGroup -Destination $urlOfUploadedImageVhd `
-                  -LocalFilePath 'D:\work\output-hyperv-iso\Virtual Hard Disks\WindowsServer2019Docker.vhd'
+  -LocalFilePath 'D:\work\output-hyperv-iso\Virtual Hard Disks\WindowsServer2019Docker.vhd'
 
-$imageName="windows_2019_docker_17763"
+# $imageName = "windows_2019_docker_17763"
 $imageConfig = New-AzureRmImageConfig -Location $location
 $imageConfig = Set-AzureRmImageOsDisk -Image $imageConfig -OsType Windows -OsState Generalized `
-                  -BlobUri $urlOfUploadedImageVhd
-$image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
+  -BlobUri $urlOfUploadedImageVhd
+# $image = New-AzureRmImage -ImageName $imageName -ResourceGroupName $resourceGroup -Image $imageConfig
 
 
 # $diskSizeGB = '128'
