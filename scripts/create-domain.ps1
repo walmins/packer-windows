@@ -1,4 +1,4 @@
-﻿if ((gwmi win32_computersystem).partofdomain -eq $false) {
+﻿if ((Get-CimInstance win32_computersystem).partofdomain -eq $false) {
 
   Write-Output 'Creating domain controller'
   # Disable password complexity policy

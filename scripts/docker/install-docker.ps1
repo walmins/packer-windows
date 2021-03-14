@@ -21,7 +21,7 @@ if ($zip_url) {
   Set-ExecutionPolicy Bypass -scope Process
   New-Item -Type Directory -Path "$($env:ProgramFiles)\docker"
   Write-Output "Downloading docker $docker_version ..."
-  wget -outfile $env:TEMP\docker.zip $zip_url
+  Invoke-WebRequest -outfile $env:TEMP\docker.zip $zip_url
   Expand-Archive -Path $env:TEMP\docker.zip -DestinationPath $env:TEMP -Force
   Copy-Item $env:TEMP\docker\*.* $env:ProgramFiles\docker
   Remove-Item $env:TEMP\docker.zip
@@ -33,7 +33,7 @@ if ($zip_url) {
 }
 else {
   Write-Output "Use get.mirantis.com/install.ps1 ..."
-  Invoke-WebRequest -useb https://get.mirantis.com/install.ps1 -OutFile $env:TEMP\install.ps1
+  Invoke-WebRequest https://get.mirantis.com/install.ps1 -OutFile $env:TEMP\install.ps1 -UseBasicParsing
   .\$env:TEMP\install.ps1
   Remove-Item $env:TEMP\install.ps1 -Force -ErrorAction SilentlyContinue
 }

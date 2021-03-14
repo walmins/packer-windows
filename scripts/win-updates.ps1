@@ -63,6 +63,7 @@ function Check-ContinueRestartOrEnd() {
 function Install-WindowsUpdates()
  {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+  [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
   param()
   $script:Cycles++
   LogWrite "Evaluating Available Updates with limit of $($MaxUpdatesPerCycle):"
@@ -176,6 +177,7 @@ function Install-WindowsUpdates()
 
 function Check-WindowsUpdates() {
   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseDeclaredVarsMoreThanAssignments', '')]
+  [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseSingularNouns', '')]
   param()
   LogWrite "Checking For Windows Updates"
   $Username = $env:USERDOMAIN + "\" + $env:USERNAME
