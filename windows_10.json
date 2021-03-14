@@ -19,13 +19,17 @@
       ],
       "headless": true,
       "iso_checksum": "{{user `iso_checksum`}}",
-      "iso_url": "{{user `iso_url`}}",
+      "iso_url": "{{user `iso_url`}}",      
       "memory": "{{user `memory`}}",
       "output_directory": "windows_10-qemu",
       "qemuargs": [
         [
           "-drive",
           "file=windows_10-qemu/{{ .Name }},if=virtio,cache=writeback,discard=ignore,format=qcow2,index=1"
+        ],
+        [
+          "-drive",
+          "file={{ user `iso_url` }},media=cdrom,index=2"
         ],
         [
           "-drive",
@@ -94,7 +98,7 @@
       "memory": "{{user `memory`}}",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
       "type": "vmware-iso",
-      "version": 14,
+      "version": "{{user `vmx_version`}}",
       "vm_name": "{{user `vm_name`}}",
       "vmx_data": {
         "RemoteDisplay.vnc.enabled": "false",
@@ -243,6 +247,7 @@
     "vhv_enable": "false",
     "virtio_win_iso": "~/virtio-win.iso",
     "vm_name": "windows_10",
-    "winrm_timeout": "6h"
+    "winrm_timeout": "6h",
+    "vmx_version": "14"
   }
 }
