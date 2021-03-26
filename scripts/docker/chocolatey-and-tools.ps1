@@ -28,7 +28,9 @@ Set-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run -Name bginf
 wscript "c:\Program Files\sysinternals\bginfo.vbs"
 
 Write-Output 'Install Chocolatey'
-Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing | Invoke-Expression
+Invoke-WebRequest 'https://chocolatey.org/install.ps1' -UseBasicParsing -OutFile $env:TEMP\install.ps1
+.\$env:TEMP\install.ps1
+Remove-Item $env:TEMP\install.ps1 -Force -ErrorAction SilentlyContinue
 
 Write-Output 'Install editors'
 choco install -y visualstudiocode

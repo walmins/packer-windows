@@ -1,5 +1,5 @@
-Write-Host Creating group docker
+Write-Output Creating group docker
 net localgroup docker /add
 $username = $env:USERNAME
-Write-Host Adding user $username to group docker
+Write-Output Adding user $username to group docker
 net localgroup docker $username /add
