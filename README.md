@@ -27,7 +27,7 @@ The following Windows versions are known to work (built with VMware Fusion Pro
 11.0.2):
 
 * Windows 10
-  * Windows 10 1809 -> Vagrant Cloud box [StefanScherer/windows_10](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
+  * Windows 10 2004 -> Vagrant Cloud box [StefanScherer/windows_10](https://app.vagrantup.com/StefanScherer/boxes/windows_10)
   * Windows 10 Insider
 * Windows Server 2016 Desktop -> Vagrant Cloud box [StefanScherer/windows_2016](https://app.vagrantup.com/StefanScherer/boxes/windows_2016)
 * Windows Server 2019 Desktop -> Vagrant Cloud box [StefanScherer/windows_2019](https://app.vagrantup.com/StefanScherer/boxes/windows_2019)
