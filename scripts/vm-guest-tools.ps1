@@ -78,4 +78,16 @@ if ("$env:PACKER_BUILDER_TYPE" -eq "virtualbox-iso") {
   cmd /c rd /S /Q "C:\Windows\Temp\virtualbox"
 }
 
+if ("$env:PACKER_BUILDER_TYPE" -eq "parallels-iso") {
+  Write-Output "Using Parallels Desktop"
+  # This is required when using Parallels Desktop
+  # Currently the installation of Parallels Tools is broken if you're installing in Windows Server Core
+  # You will encounter an error in printui.dll module not found message.
+  # This feature will add the required libraries for printing services.
+
+  # Parallels Tools is required for sync_folder to work.
+  # Vagrantfile config: v.update_guest_tools = true will be installed with no issues
+  Install-WindowsFeature -Name Print-Server  
+}
+
 cmd /c msiexec /qb /x C:\Windows\Temp\7z1900-x64.msi
