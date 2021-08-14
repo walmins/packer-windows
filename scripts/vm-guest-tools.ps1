@@ -87,7 +87,8 @@ if ("$env:PACKER_BUILDER_TYPE" -eq "parallels-iso") {
 
   # Parallels Tools is required for sync_folder to work.
   # Vagrantfile config: v.update_guest_tools = true will be installed with no issues
-  Install-WindowsFeature -Name Print-Server  
+  Write-Output "Installing Print Server service"
+  Install-WindowsFeature -Name Print-Server
 }
 
 cmd /c msiexec /qb /x C:\Windows\Temp\7z1900-x64.msi
