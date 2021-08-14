@@ -114,7 +114,6 @@
         "./scripts/disable-winrm.ps1",
         "./scripts/docker/enable-winrm.ps1",
         "./scripts/docker/2016/install-containers-feature.ps1",
-        "./scripts/vm-parallels-features.ps1",
         "./scripts/microsoft-updates.bat",
         "./scripts/win-updates.ps1"
       ],
