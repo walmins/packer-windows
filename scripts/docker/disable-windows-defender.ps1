@@ -1,4 +1,4 @@
 $DefenderInstalled = Get-Command -Module Defender
-if($DefenderInstalled -ne $null) {
+if($null -ne $DefenderInstalled) {
     Set-MpPreference -DisableRealtimeMonitoring $true
 }
