@@ -19,7 +19,7 @@ else {
     . $env:TEMP\Debloat-Windows-10-master\scripts\disable-windows-defender.ps1
   }
   else {
-    Uninstall-WindowsFeature Windows-Defender-Features
+    Uninstall-WindowsFeature Windows-Defender
   }
   Write-Output Optimize Windows Update
   . $env:TEMP\Debloat-Windows-10-master\scripts\optimize-windows-update.ps1
