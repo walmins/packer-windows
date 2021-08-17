@@ -42,27 +42,43 @@ work so nice with a Retina display.
 
 ### Windows Editions
 
-All Windows Server versions are defaulted to the Server Standard edition. You
+All Windows Server versions are defaulted to the Server Datacenter edition. You
 can modify this by editing the Autounattend.xml file, changing the
 `ImageInstall`>`OSImage`>`InstallFrom`>`MetaData`>`Value` element (e.g. to
-Windows Server 2012 R2 SERVERDATACENTER).
+`Windows Server 2019 SERVERSTANDARDCORE`).
 
-To retrieve the correct ImageName from an ISO file use the following two commands.
+To retrieve the correct image name from an ISO file use the following two commands.
 
 ```
-PS C:\> Mount-DiskImage -ImagePath C:\iso\Windows_InsiderPreview_Server_2_16237.iso
+PS C:\> Mount-DiskImage -ImagePath C:\iso\17763.737.190906-2324.rs5_release_svc_refresh_SERVER_EVAL_x64FRE_en-us_1.iso
 PS C:\> Get-WindowsImage -ImagePath e:\sources\install.wim
 
 ImageIndex       : 1
-ImageName        : Windows Server 2016 SERVERSTANDARDACORE
-ImageDescription : Windows Server 2016 SERVERSTANDARDACORE
-ImageSize        : 7,341,507,794 bytes
+ImageName        : Windows Server 2019 Standard
+ImageDescription : (Recommended) This option omits most of the Windows graphical environment. Manage with a command
+                   prompt and PowerShell, or remotely with Windows Admin Center or other tools.
+ImageSize        : 8,388,579,855 bytes
 
 ImageIndex       : 2
-ImageName        : Windows Server 2016 SERVERDATACENTERACORE
-ImageDescription : Windows Server 2016 SERVERDATACENTERACORE
-ImageSize        : 7,373,846,520 bytes
+ImageName        : Windows Server 2019 Standard (Desktop Experience)
+ImageDescription : This option installs the full Windows graphical environment, consuming extra drive space. It can be
+                   useful if you want to use the Windows desktop or have an app that requires it.
+ImageSize        : 14,668,863,719 bytes
+
+ImageIndex       : 3
+ImageName        : Windows Server 2019 Datacenter
+ImageDescription : (Recommended) This option omits most of the Windows graphical environment. Manage with a command
+                   prompt and PowerShell, or remotely with Windows Admin Center or other tools.
+ImageSize        : 8,378,362,786 bytes
+
+ImageIndex       : 4
+ImageName        : Windows Server 2019 Datacenter (Desktop Experience)
+ImageDescription : This option installs the full Windows graphical environment, consuming extra drive space. It can be
+                   useful if you want to use the Windows desktop or have an app that requires it.
+ImageSize        : 14,673,479,669 bytes
 ```
+
+If you are not sure about the exact image name, you can use the index instead. Change the `Key` element to `/IMAGE/INDEX` and put the index number in the `Value` element.
 
 ### Product Keys
 
