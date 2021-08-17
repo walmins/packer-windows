@@ -225,7 +225,7 @@ In case you're using Parallels, you can now build the `Windows Server 2019 with 
 Prerequisites:
 * Parallels Pro or Business, version 11 and up.
 * Vagrant Parallels Provider: https://github.com/Parallels/vagrant-parallels
-* Parallels Virtualization for Intel Mac (https://www.parallels.com/download/pvsdk/intel/)
+* Parallels Virtualization SDK for Intel Mac (https://www.parallels.com/download/pvsdk/intel/)
   
 You can use the following sample command to build a Parallels VM:
 
